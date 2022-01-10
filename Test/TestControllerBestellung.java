@@ -5,7 +5,6 @@ import Model.Produkt;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,14 +36,19 @@ public class TestControllerBestellung {
     }
 
     @Test
-    public void addProdukt(){
+    public void addBestellung(){
         controllerBestellungen.addBestellung(bestellung3);
         assertEquals(3,controllerBestellungen.getAlleBestellungen().size());
     }
 
     @Test
-    public void deleteProdukt(){
+    public void deleteBestellung(){
        controllerBestellungen.deleteBestellung(bestellung3);
         assertEquals(2,controllerBestellungen.getAlleBestellungen().size());
+    }
+
+    public void updateBestellung(){
+        controllerBestellungen.updateBestellung(2,"adresa noua");
+        assertEquals(controllerBestellungen.getAlleBestellungen().get(1).getAdresse(),"adresa noua");
     }
 }

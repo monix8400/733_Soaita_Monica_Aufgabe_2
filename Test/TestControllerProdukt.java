@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class TestControllerProdukt {
     ControllerBestellungen controllerBestellungen;
@@ -36,5 +37,11 @@ public class TestControllerProdukt {
     public void deleteProdukt(){
         controllerProdukt.deleteProdukt(produkt2);
         assertEquals(2,controllerProdukt.getAllProdukts().size());
+    }
+
+    @Test
+    public void updateProdukt(){
+        controllerProdukt.update("name3",75.00f);
+        assertNotEquals(controllerProdukt.getAllProdukts().get(1).getPreis(),100.00f);
     }
 }

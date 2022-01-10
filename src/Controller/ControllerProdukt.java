@@ -20,6 +20,14 @@ public class ControllerProdukt {
         produktList.remove(produkt);
     }
 
+    public void update(String name, Float preis){
+        for(Produkt produkt:produktList){
+            if(produkt.getName().equals(name)){
+                produkt.setPreis(preis);
+            }
+        }
+    }
+
     public List<Produkt> getAllProdukts(){
         return produktList;
     }
